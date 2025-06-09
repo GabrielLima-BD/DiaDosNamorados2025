@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eu Te Amo</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <audio id="player"></audio>
+  <header>
+    <h1>Eu Te Amo</h1>
+    <p>E aqui está uma forma para relembrarmos os nossos momentos sempre que tivermos saudades</p>
+  </header>
+
+  <section class="momentos">
+    <h2>Momentos Inesquecíveis</h2>
+    <div class="cards">
+      <div class="card" data-music="./Musica/Musica1Vemca.mp3">
+        <img src="./imagens/PrimeiroEncontro.jpg" alt="Primeiro Encontro/Beijo">
+        <h3>Primeiro Encontro/Beijo</h3>
+        <p>Nosso "primeiro" encontro, a foto não é basicamente dela, mas eu considero os 2 como primeiros. Mas eu quero falar é daquele do nosso
+          primeiro beijo, simplesmente mágico e engraçado, pois foi algo na emoção da hora, e ainda por cima após de um jogo de bilhar, sim, eu a levei
+          para um "bar" no nosso primeiro encontro, tudo improvisado, mas foi algo que eu nunca vou esquecer. Queria reviver como espectador esse momento,
+          olhar de longe e ver a gente se olhando, e eu com aquele sorriso bobo no rosto e vc me olhando de uma forma que me dava arrepios, foi aonde eu
+          descobri o que era amor. E sim, foi vc que me puxou.
+        </p>
+      </div>
+
+      <div class="card" data-music="./Musica/Musica2YoungGirl.mp3">
+        <img src="./imagens/Cachoeira.jpg" alt="1 Viagem a sós">
+        <h3>1 Viagem a sós</h3>
+        <p>Um passeio lindo, mas tbm traumatizante. Primeira vez saindo sozinhos, um passeio apenas nosso e de mais ninguém, e parece que
+          Deus estava com nós, pq pegarmos aquela cachoeira com somente a gente foi algo mágico, um passeio que não foi de última hora,
+          mas foi algo de repente, não organizamos muita coisa pra levar, mas levamos o essencial, água, lanche, cadeiras, protetores e toalhas,
+          mas o que mais levamos foi o amor, e isso foi o que mais importou. Mas uma coisa é certa, NUNCA mais podemos confiar 100% no Waze.
+        </p>
+      </div>
+
+      <div class="card" data-music="./Musica/Musica3Tatto.mp3">
+        <img src="./imagens/Linaguada.jpg" alt="Nosso Jeitinho">
+        <h3>Fotos e mais Fotos</h3>
+        <p>Olhares, caretas e sorrisos, tudo guardado em fotos e vídeos. É engraçado, pois nunca fui uma pessoa ligada a tirar foto,
+          é uma coisa que eu odiava, minha galeria era algo vazio e de repente ficou lotada de coisas,
+          fotos nossas, do Drako e da Lili, e eu te agradeço muito por ter me mostrado isso, eu amo viver o momento,
+          mas tbm amo o fato de poder relembrar ele com as fotos, tudo isso graças a vc, que depois que te conheci,
+          é a forma que eu mais gosto de lembrar da gente.</p>
+      </div>
+
+      <div class="card" data-music="./Musica/Musica4Amor.mp3">
+        <img src="./imagens/BetoCarreiro.jpg" alt="Mais Risos">
+        <h3>"Amor, confesso tu tira minha dor"</h3>
+        <p>Essa aqui é história, essa foto, esse momento, essas lembranças,
+          essa viagem, pra mim foi bizarro. Aquela noite na praia, fiz um dos pedidos mais fortes para o universo,
+          que foi me deixar ao seu lado pro resto da vida. Que nem diz a música -
+          "Quero conhecer todos os lugares desse mundo, mas sem você eu não vou"
+        </p>
+      </div>
+
+      <div class="card" data-music="./Musica/Musica5EuGostoDeVoce.mp3">
+        <img src="./imagens/RIdiculos.jpg" alt="Sempre Juntos">
+        <h3>Eu Te Amo</h3>
+        <p>Não importa o ano, o mês, o dia, a hora, o segundo, o lugar, com quem, fazendo sla o que, sempre vou acabar pensando em vc e na gente.
+          Sou completamente apaixonado por vc, e não tem como eu não pensar em vc, e em tudo que vivemos juntos e o que ainda vamos viver. Eu te amo,
+          e espero que vc nunca duvide disso, pois é algo que eu sinto com todas as minhas forças, e que eu quero viver com vc por toda a minha vida.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="mensagens">
+    <h2>Mensagens do Coração</h2>
+    <p id="mensagem-texto">Você é a minha estrela mais brilhante. Feliz Dia dos Namorados!</p>
+    <button id="mudar-mensagem">Nova Mensagem</button>
+  </section>
+
+  <script src="./javascript/script.js"></script>
+</body>
+</html>
