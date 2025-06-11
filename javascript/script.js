@@ -77,7 +77,7 @@ function draw() {
     meteor.life--;
     if (meteor.x < -50 || meteor.y > height + 50) {
       let index = meteors.indexOf(meteor);
-      [meteors=index] = createMeteor(index, meteors.length);
+      meteors[index] = createMeteor(index, meteors.length);
     }
   }
 }
