@@ -285,27 +285,27 @@ const mensagens = [
   "Nosso amor é arte de rua: livre, lindo e cheio de cor",
   "Com você, tudo tem mais cor e mais sentido.",
   "Você é o código-fonte do meu coração",
-  "Você é a resposta mais bonita que a vida me deu.",
+  "Você é a resposta mais bonita que a vida me deu。",
   "Você é o traço firme em meio às linhas tortas da vida",
-  "Meu coração te reconheceu antes mesmo dos meus olhos.",
+  "Meu coração te reconheceu antes mesmo dos meus olhos。",
   "Você é o filtro solar do meu caos emocional",
-  "Você é poesia em forma de gente.",
+  "Você é poesia em forma de gente。",
   "Você é a vibe que toca fundo e não cansa",
-  "Seu amor é meu abrigo em qualquer tempestade.",
+  "Seu amor é meu abrigo em qualquer tempestade。",
   "Você é o plugin que faltava pra minha felicidade funcionar",
-  "Você me completa de um jeito que eu nem sabia que faltava.",
+  "Você me completa de um jeito que eu nem sabia que faltava。",
   "Você é tipo playlist boa: não enjoo nunca",
-  "Meu melhor lugar sempre vai ser ao seu lado.",
+  "Meu melhor lugar sempre vai ser ao seu lado。",
   "Você é o ponto de exclamação dos meus dias",
-  "Você faz meu coração bater no compasso certo.",
+  "Você faz meu coração bater no compasso certo。",
   "Você é meu sketch favorito do caderno inteiro",
-  "Te amar é a minha parte favorita de viver.",
+  "Te amar é a minha parte favorita de viver。",
   "Você é como cor que não sai mesmo depois de lavar",
-  "Você me faz querer ser melhor todos os dias.",
+  "Você me faz querer ser melhor todos os dias。",
   "Você é meu bug mais fofo",
-  "Meu dia só começa de verdade quando penso em você.",
+  "Meu dia só começa de verdade quando penso em você。",
   "Você é a arte que me inspira até nos dias cinzas",
-  "Você é o amor que eu sempre sonhei, acordado.",
+  "Você é o amor que eu sempre sonhei, acordado。",
   "Você é meu motivo de continuar tentando todos os dias"
 ];
 
@@ -374,7 +374,7 @@ cards.forEach(card => {
       player.pause();
       player.currentTime = 0;
       cards.forEach(c => c.classList.remove('active'));
-      card.classList.add('active');
+      card.classList.add('cardboard');
       player.src = card.dataset.music;
       player.play().catch(error => console.log('Erro ao tocar:', error));
       currentCard = card;
@@ -384,7 +384,7 @@ cards.forEach(card => {
 
 // Relógio do namoro
 function atualizarRelogio() {
-  const inicioNamoro = new Date('2023-09-08T00:00:00-03:00'); // Início do namoro
+  const inicioNamoro = new Date('2023-09-15T00:00:00'); // Início do namoro
   const agora = new Date(); // Data e hora atual
 
   // Verificar se os elementos HTML existem
@@ -399,28 +399,24 @@ function atualizarRelogio() {
   // Calcular diferença em milissegundos
   const diferenca = agora.getTime() - inicioNamoro.getTime();
 
-  // Calcular unidades de tempo
+  // Convertendo a diferença de tempo para segundos
   const segundosTotais = Math.floor(diferenca / 1000);
-  const anos = Math.floor(segundosTotais / (365.25 * 24 * 60 * 60));
-  const restoAnos = segundosTotais % (365.25 * 24 * 60 * 60);
-  const meses = Math.floor(restoAnos / (30.42 * 24 * 60 * 60));
-  const restoMeses = restoAnos % (30.42 * 24 * 60 * 60);
+  const anos = Math.floor(segundosTotais / (365.25 * 24 * 60 * 60)); // Aproximando ano com 365.25 dias para anos bissextos
+  const restoAnos = segundosTotais - anos * (365.25 * 24 * 60 * 60);
+  const meses = Math.floor(restoAnos / (30.42 * 24 * 60 * 60)); // Aproximando mês com 30.42 dias
+  const restoMeses = restoAnos - meses * (30.42 * 24 * 60 * 60);
   const dias = Math.floor(restoMeses / (24 * 60 * 60));
-  const restoDias = restoMeses % (24 * 60 * 60);
+  const restoDias = restoMeses - dias * (24 * 60 * 60);
   const horas = Math.floor(restoDias / (60 * 60));
-  const restoHoras = restoDias % (60 * 60);
+  const restoHoras = restoDias - horas * (60 * 60);
   const minutos = Math.floor(restoHoras / 60);
-  const segundos = restoHoras % 60;
+  const segundos = restoHoras - minutos * 60;
 
-  // Atualizar os elementos HTML
-  try {
-    document.getElementById('anos').textContent = anos;
-    document.getElementById('meses').textContent = meses;
-    document.getElementById('dias').textContent = dias;
-    document.getElementById('horas').textContent = horas;
-    document.getElementById('minutos').textContent = minutos;
-    document.getElementById('segundos').textContent = segundos;
-  } catch (error) {
-    console.error('Erro ao atualizar o relógio:', error);
-  }
+  // Atualizar elementos HTML
+  document.getElementById('anos').textContent = anos;
+  document.getElementById('meses').textContent = meses;
+  document.getElementById('dias').textContent = dias;
+  document.getElementById('horas').textContent = horas;
+  document.getElementById('minutos').textContent = minutos;
+  document.getElementById('segundos').textContent = segundos;
 }
