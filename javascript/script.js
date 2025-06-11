@@ -57,9 +57,12 @@ function draw() {
     ellipse(star.x, star.y, star.size, star.size);
   }
 
-  for (let meteor of meteors) {
+  for (let i = meteors.length - 1; i >= 0; i--) {
+    let meteor = meteors[i];
     meteor.x += meteor.speedX;
     meteor.y += meteor.speedY;
+    meteor.life--;
+
     let alpha = map(meteor.life, 0, meteor.maxLife, 0, 180);
 
     push();
@@ -74,10 +77,9 @@ function draw() {
     strokeWeight(1.5);
     line(meteor.x, meteor.y, meteor.x - meteor.speedX * 10, meteor.y - meteor.speedY * 10);
 
-    meteor.life--;
-    if (meteor.x < -50 || meteor.y > height + 50) {
-      let index = meteors.indexOf(meteor);
-      meteors[index] = createMeteor(index, meteors.length);
+    // Verificar se o meteoro saiu da tela ou acabou sua vida
+    if (meteor.x < -50 || meteor.x > width + 50 || meteor.y > height + 50 || meteor.y < -50 || meteor.life <= 0) {
+      meteors[i] = createMeteor(i, meteors.length);
     }
   }
 }
@@ -85,11 +87,11 @@ function draw() {
 function createMeteor(index, numMeteors) {
   let zoneWidth = width / numMeteors;
   let x = random(index * zoneWidth, (index + 1) * zoneWidth);
-  let y = random(-10, 0);
+  let y = random(-50, -10); // Iniciar acima da tela
   let speed = random(3, 6.5);
 
-  let speedX = -speed * random(0.7, 0.9);
-  let speedY = speed * random(0.7, 0.9);
+  let speedX = -speed * random(0.7, 0.9); // Movimento para esquerda
+  let speedY = speed * random(0.7, 0.9); // Movimento para baixo
 
   return {
     x: x,
@@ -307,14 +309,44 @@ const mensagens = [
   "Você é meu motivo de continuar tentando todos os dias"
 ];
 
-// Mostrar frase aleatória ao carregar
+// Confirmar carregamento do JavaScript
+console.log("script.js carregado com sucesso");
+
+// Mostrar frase aleatória, iniciar relógio e configurar galeria ao carregar
 window.addEventListener('DOMContentLoaded', () => {
+  console.log("DOMContentLoaded disparado");
+  // Mensagem aleatória
   const mensagemInicial = mensagens[Math.floor(Math.random() * mensagens.length)];
   document.getElementById('mensagem-texto').textContent = mensagemInicial;
 
-  // Iniciar o relógio assim que a página carregar
+  // Iniciar o relógio
   atualizarRelogio();
   setInterval(atualizarRelogio, 1000);
+
+  // Configurar galeria
+  const imagens = document.querySelectorAll('.galeria-img');
+  const modal = document.getElementById('modal-galeria');
+  const modalImagem = document.getElementById('modal-imagem');
+  const modalLegenda = document.getElementById('modal-legenda');
+  const fecharModal = document.querySelector('.fechar-modal');
+
+  imagens.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalImagem.src = img.src;
+      modalLegenda.textContent = img.dataset.legenda;
+    });
+  });
+
+  fecharModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
 });
 
 // Trocar mensagem ao clicar
@@ -352,8 +384,17 @@ cards.forEach(card => {
 
 // Relógio do namoro
 function atualizarRelogio() {
-  const inicioNamoro = new Date('2023-09-08T00:00:00-03:00'); // Início do namoro com fuso horário -03:00
+  const inicioNamoro = new Date('2023-09-08T00:00:00-03:00'); // Início do namoro
   const agora = new Date(); // Data e hora atual
+
+  // Verificar se os elementos HTML existem
+  const elementos = ['anos', 'meses', 'dias', 'horas', 'minutos', 'segundos'];
+  for (let id of elementos) {
+    if (!document.getElementById(id)) {
+      console.error(`Elemento com ID "${id}" não encontrado. Verifique o HTML.`);
+      return;
+    }
+  }
 
   // Calcular diferença em milissegundos
   const diferenca = agora.getTime() - inicioNamoro.getTime();
