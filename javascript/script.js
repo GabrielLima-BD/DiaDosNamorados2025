@@ -124,7 +124,6 @@ function windowResized() {
 }
 
 // MENSAGENS + ÁUDIO
-
 const mensagens = [
   "Eu te amo mil milhões",
   "Te amar é a arte mais bonita que já criei",
@@ -134,9 +133,9 @@ const mensagens = [
   "Se eu fosse um bug, você seria o motivo pra não querer ser corrigido",
   "Você ilumina meu universo com seu sorriso.",
   "Seu sorriso tem o mesmo efeito de um refrão de reggae num dia de sol",
-  "Você é a minha estrela mais brilhante no céu da vida.",
-  "Amar você é tipo meme bom: sempre arranca um sorriso",
-  "Seu olhar tem o brilho das galáxias distantes.",
+  "Você é a minha estrela mais brilhante no céu da第八
+
+System: da vida.",
   "Você é meu poema favorito, mesmo sem rima nem métrica",
   "Você é o meu cometa raro que apareceu pra ficar.",
   "Cada segundo com você é como flutuar entre as estrelas",
@@ -346,3 +345,38 @@ cards.forEach(card => {
     }
   });
 });
+
+// Relógio do namoro
+function atualizarRelogio() {
+  const inicioNamoro = new Date('2023-09-08T00:00:00');
+  const agora = new Date();
+  let diferenca = agora - inicioNamoro;
+
+  // Converter milissegundos para unidades de tempo
+  const segundosTotais = Math.floor(diferenca / 1000);
+  const anos = Math.floor(segundosTotais / (365.25 * 24 * 60 * 60));
+  diferenca -= anos * 365.25 * 24 * 60 * 60 * 1000;
+  const meses = Math.floor(diferenca / (30.42 * 24 * 60 * 60 * 1000));
+  diferenca -= meses * 30.42 * 24 * 60 * 60 * 1000;
+  const dias = Math.floor(diferenca / (24 * 60 * 60 * 1000));
+  diferenca -= dias * 24 * 60 * 60 * 1000;
+  const horas = Math.floor(diferenca / (60 * 60 * 1000));
+  diferenca -= horas * 60 * 60 * 1000;
+  const minutos = Math.floor(diferenca / (60 * 1000));
+  diferenca -= minutos * 60 * 1000;
+  const segundos = Math.floor(diferenca / 1000);
+
+  // Atualizar os elementos HTML
+  document.getElementById('anos').textContent = anos;
+  document.getElementById('meses').textContent = meses;
+  document.getElementById('dias').textContent = dias;
+  document.getElementById('horas').textContent = horas;
+  document.getElementById('minutos').textContent = minutos;
+  document.getElementById('segundos').textContent = segundos;
+}
+
+// Atualizar o relógio a cada segundo
+setInterval(atualizarRelogio, 1000);
+
+// Executar a primeira atualização imediatamente
+atualizarRelogio();
