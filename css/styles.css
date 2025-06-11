@@ -171,15 +171,24 @@ audio {
   font-weight: bold;
 }
 
-.galeria-container {
+.album-container {
+  background: rgba(94, 19, 125, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 120px));
   gap: 10px;
+  justify-content: center;
 }
 
 .galeria-img {
-  width: 100%;
-  border-radius: 10px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -239,7 +248,12 @@ audio {
   #relogio-namoro {
     max-width: 90%;
   }
-  .galeria-container {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  .album-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
+    padding: 15px;
+  }
+  .galeria-img {
+    width: 100px;
+    height: 100px;
   }
 }
