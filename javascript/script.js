@@ -314,37 +314,46 @@ document.getElementById('mudar-mensagem').addEventListener('click', function() {
     "Você é o amor que eu sempre sonhei, acordado.",
     "Você é meu motivo de continuar tentando todos os dias"
   ];
-  const mensagemAtual = document.getElementById('mensagem-texto').textContent;
-  let novaMensagem = mensagemAtual;
-  while (novaMensagem === mensagemAtual) {
-    novaMensagem = mensagens[Math.floor(Math.random() * mensagens.length)];
-  }
-  document.getElementById('mensagem-texto').textContent = novaMensagem;
-});
 
-// Áudio para os cartões
-const player = document.getElementById('player');
-const cards = document.querySelectorAll('.card');
-let currentCard = null;
-
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    if (currentCard === card && !player.paused) {
-      // Se o mesmo cartão for clicado e a música estiver tocando, pausar
-      player.pause();
-      card.classList.remove('active');
-      currentCard = null;
-    } else {
-      // Parar música atual, se houver
-      player.pause();
-      player.currentTime = 0;
-      // Remover classe active de outros cartões
-      cards.forEach(c => c.classList.remove('active'));
-      // Configurar e tocar nova música
-      card.classList.add('active');
-      player.src = card.dataset.music;
-      player.play().catch(error => console.log('Erro ao tocar:', error));
-      currentCard = card;
-    }
-  });
-});
+    
+    // Mostrar uma frase aleatória assim que a página carregar
+    window.addEventListener('DOMContentLoaded', () => {
+      const mensagemInicial = mensagens[Math.floor(Math.random() * mensagens.length)];
+      document.getElementById('mensagem-texto').textContent = mensagemInicial;
+    });
+    
+    document.getElementById('mudar-mensagem').addEventListener('click', function() {
+      const mensagemAtual = document.getElementById('mensagem-texto').textContent;
+      let novaMensagem = mensagemAtual;
+      while (novaMensagem === mensagemAtual) {
+        novaMensagem = mensagens[Math.floor(Math.random() * mensagens.length)];
+      }
+      document.getElementById('mensagem-texto').textContent = novaMensagem;
+    });
+    
+    // Áudio para os cartões
+    const player = document.getElementById('player');
+    const cards = document.querySelectorAll('.card');
+    let currentCard = null;
+    
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (currentCard === card && !player.paused) {
+          // Se o mesmo cartão for clicado e a música estiver tocando, pausar
+          player.pause();
+          card.classList.remove('active');
+          currentCard = null;
+        } else {
+          // Parar música atual, se houver
+          player.pause();
+          player.currentTime = 0;
+          // Remover classe active de outros cartões
+          cards.forEach(c => c.classList.remove('active'));
+          // Configurar e tocar nova música
+          card.classList.add('active');
+          player.src = card.dataset.music;
+          player.play().catch(error => console.log('Erro ao tocar:', error));
+          currentCard = card;
+        }
+      });
+    });
