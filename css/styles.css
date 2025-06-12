@@ -4,40 +4,33 @@ body {
   background: linear-gradient(to bottom, #000000, #0c0c2c);
   color: white;
 }
-
 header {
   background-color: #330049a4;
   padding: 20px;
   text-align: center;
 }
-
 header h1 {
   margin: 0;
 }
-
 header p {
   margin: 5px 0 0 0;
   font-size: 0.9rem;
 }
-
 .momentos {
   padding: 40px 20px;
   text-align: center;
 }
-
 .momentos h2 {
   font-size: 1.4rem;
   margin-bottom: 30px;
   font-weight: bold;
 }
-
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
-
 .card {
   background-color: #5e137d4c;
   border-radius: 10px;
@@ -48,16 +41,13 @@ header p {
   transition: transform 0.2s ease, background-color 0.3s ease;
   cursor: pointer;
 }
-
 .card:hover {
   transform: scale(1.03);
 }
-
 .card.active {
   background-color: rgba(94, 19, 125, 0.7);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
 .card img {
   width: 100%;
   height: 500px;
@@ -65,30 +55,25 @@ header p {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
 .card h3 {
   color: #87509e;
   margin: 10px 0 5px;
   font-size: 1rem;
 }
-
 .card p {
   color: #FFF;
   font-size: 0.85rem;
   line-height: 1.2rem;
 }
-
 .mensagens {
   padding: 40px 20px;
   text-align: center;
 }
-
 .mensagens h2 {
   font-size: 1.4rem;
   margin-bottom: 20px;
   font-weight: bold;
 }
-
 .mensagens p#mensagem-texto {
   font-size: 1.1rem;
   margin: 0 auto 20px;
@@ -108,11 +93,9 @@ header p {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .mensagens button#mudar-mensagem:hover {
   background-color: #77428d;
 }
-
 #relogio-namoro {
   margin-top: 20px;
   background: rgba(94, 19, 125, 0.3);
@@ -122,28 +105,23 @@ header p {
   margin-left: auto;
   margin-right: auto;
 }
-
 #relogio-namoro h3 {
   color: #87509e;
   margin: 0 0 10px 0;
   font-size: 1.2rem;
 }
-
 #relogio-namoro p#tempo {
   font-size: 1rem;
   color: #FFF;
   line-height: 1.5rem;
 }
-
 #relogio-namoro span {
   font-weight: bold;
   color: #e8b6ff;
 }
-
 audio {
   display: none;
 }
-
 .heart {
   position: absolute;
   width: 20px;
@@ -154,23 +132,19 @@ audio {
   pointer-events: none;
   animation: fadeOut 1s ease-out;
 }
-
 @keyframes fadeOut {
   0% { opacity: 0.8; transform: scale(1); }
   100% { opacity: 0; transform: scale(0.5); }
 }
-
 .galeria {
   padding: 40px 20px;
   text-align: center;
 }
-
 .galeria h2 {
   font-size: 1.4rem;
   margin-bottom: 30px;
   font-weight: bold;
 }
-
 .album-container {
   background: rgba(94, 19, 125, 0.3);
   border-radius: 15px;
@@ -183,7 +157,6 @@ audio {
   gap: 10px;
   justify-content: center;
 }
-
 .galeria-img {
   width: 120px;
   height: 120px;
@@ -192,12 +165,10 @@ audio {
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .galeria-img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(232, 182, 255, 0.5);
 }
-
 .modal {
   display: none;
   position: fixed;
@@ -210,13 +181,11 @@ audio {
   align-items: center;
   z-index: 1000;
 }
-
 .modal img {
   max-width: 90%;
   max-height: 80%;
   border-radius: 10px;
 }
-
 .fechar-modal {
   position: absolute;
   top: 20px;
@@ -225,13 +194,11 @@ audio {
   font-size: 30px;
   cursor: pointer;
 }
-
 #modal-legenda {
   color: white;
   font-size: 1.2rem;
   margin-top: 10px;
 }
-
 @media (max-width: 600px) {
   .card {
     width: 100%;
