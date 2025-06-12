@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
     <style>
-
       .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -29,7 +28,6 @@
         tivermos saudades
       </p>
     </header>
-
     <section class="momentos reveal">
       <h2>Momentos Inesquecíveis</h2>
       <div class="cards">
@@ -52,7 +50,6 @@
             vc que me puxou.
           </p>
         </div>
-
         <div class="card" data-music="./Musica/Musica2YoungGirl.mp3">
           <img src="./imagens/Cachoeira.jpg" alt="1 Viagem a sós" />
           <h3>1 Viagem a sós</h3>
@@ -67,7 +64,6 @@
             Mas uma coisa é certa, NUNCA mais podemos confiar 100% no Waze.
           </p>
         </div>
-
         <div class="card" data-music="./Musica/Musica3Tatto.mp3">
           <img src="./imagens/Linaguada.jpg" alt="Nosso Jeitinho" />
           <h3>Fotos e mais Fotos</h3>
@@ -82,7 +78,6 @@
             gente.
           </p>
         </div>
-
         <div class="card" data-music="./Musica/Musica4Amor.mp3">
           <img src="./imagens/BetoCarreiro.jpg" alt="Mais Risos" />
           <h3>"Amor, confesso tu tira minha dor"</h3>
@@ -94,7 +89,6 @@
             lugares desse mundo, mas sem você eu não vou"
           </p>
         </div>
-
         <div class="card" data-music="./Musica/Musica5EuGostoDeVoce.mp3">
           <img src="./imagens/RIdiculos.jpg" alt="Sempre Juntos" />
           <h3>Eu Te Amo</h3>
@@ -110,7 +104,6 @@
         </div>
       </div>
     </section>
-
     <section class="mensagens reveal">
       <h2>Mensagens do Coração</h2>
       <p id="mensagem-texto">
@@ -127,8 +120,6 @@
         </p>
       </div>
     </section>
-
-
     <section class="galeria">
       <h2>Nosso Álbum</h2>
       <div class="album-container">
@@ -313,13 +304,10 @@
         <p id="modal-legenda"></p>
       </div>
     </section>
-
     <script src="./javascript/script.js"></script>
-
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const reveals = document.querySelectorAll('.reveal');
-
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -330,7 +318,6 @@
         }, {
           threshold: 0.1
         });
-
         reveals.forEach(el => observer.observe(el));
       });
     </script>
