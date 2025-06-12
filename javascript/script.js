@@ -2,7 +2,6 @@ let stars = [];
 let meteors = [];
 let lastHeartTime = 0;
 const heartDelay = 60;
-
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('canvas-container');
@@ -10,7 +9,6 @@ function setup() {
   canvas.style('top', '0');
   canvas.style('left', '0');
   canvas.style('z-index', '-1');
-
   for (let i = 0; i < 170; i++) {
     stars.push({
       x: random(width),
@@ -23,13 +21,11 @@ function setup() {
       nextTwinkle: random(100, 500)
     });
   }
-
   let numMeteors = floor(random(2, 4));
   for (let i = 0; i < numMeteors; i++) {
     meteors.push(createMeteor(i, numMeteors));
   }
 }
-
 function draw() {
   let c1 = color(0, 0, 0);
   let c2 = color(26, 26, 64);
@@ -39,7 +35,6 @@ function draw() {
     stroke(c);
     line(0, y, width, y);
   }
-
   for (let star of stars) {
     if (star.twinkle) {
       star.nextTwinkle--;
@@ -56,15 +51,12 @@ function draw() {
     noStroke();
     ellipse(star.x, star.y, star.size, star.size);
   }
-
   for (let i = meteors.length - 1; i >= 0; i--) {
     let meteor = meteors[i];
     meteor.x += meteor.speedX;
     meteor.y += meteor.speedY;
     meteor.life--;
-
     let alpha = map(meteor.life, 0, meteor.maxLife, 0, 180);
-
     push();
     noStroke();
     fill(255, 255, 255, 200);
@@ -72,27 +64,21 @@ function draw() {
     fill(255, 255, 255, 50);
     ellipse(meteor.x, meteor.y, 10, 10);
     pop();
-
     stroke(255, 255, 255, alpha);
     strokeWeight(1.5);
     line(meteor.x, meteor.y, meteor.x - meteor.speedX * 10, meteor.y - meteor.speedY * 10);
-
-    // Verificar se o meteoro saiu da tela ou acabou sua vida
     if (meteor.x < -50 || meteor.x > width + 50 || meteor.y > height + 50 || meteor.y < -50 || meteor.life <= 0) {
       meteors[i] = createMeteor(i, meteors.length);
     }
   }
 }
-
 function createMeteor(index, numMeteors) {
   let zoneWidth = width / numMeteors;
   let x = random(index * zoneWidth, (index + 1) * zoneWidth);
   let y = random(-50, -10); // Iniciar acima da tela
   let speed = random(3, 6.5);
-
   let speedX = -speed * random(0.7, 0.9); // Movimento para esquerda
   let speedY = speed * random(0.7, 0.9); // Movimento para baixo
-
   return {
     x: x,
     y: y,
@@ -102,7 +88,6 @@ function createMeteor(index, numMeteors) {
     maxLife: random(300, 500)
   };
 }
-
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   stars = [];
@@ -124,8 +109,6 @@ function windowResized() {
     meteors.push(createMeteor(i, numMeteors));
   }
 }
-
-// MENSAGENS + ÁUDIO
 const mensagens = [
   "Eu te amo mil milhões",
   "Te amar é a arte mais bonita que já criei",
@@ -308,28 +291,18 @@ const mensagens = [
   "Você é o amor que eu sempre sonhei, acordado。",
   "Você é meu motivo de continuar tentando todos os dias"
 ];
-
-// Confirmar carregamento do JavaScript
 console.log("script.js carregado com sucesso");
-
-// Mostrar frase aleatória, iniciar relógio e configurar galeria ao carregar
 window.addEventListener('DOMContentLoaded', () => {
   console.log("DOMContentLoaded disparado");
-  // Mensagem aleatória
   const mensagemInicial = mensagens[Math.floor(Math.random() * mensagens.length)];
   document.getElementById('mensagem-texto').textContent = mensagemInicial;
-
-  // Iniciar o relógio
   atualizarRelogio();
   setInterval(atualizarRelogio, 1000);
-
-  // Configurar galeria
   const imagens = document.querySelectorAll('.galeria-img');
   const modal = document.getElementById('modal-galeria');
   const modalImagem = document.getElementById('modal-imagem');
   const modalLegenda = document.getElementById('modal-legenda');
   const fecharModal = document.querySelector('.fechar-modal');
-
   imagens.forEach(img => {
     img.addEventListener('click', () => {
       modal.style.display = 'flex';
@@ -337,19 +310,15 @@ window.addEventListener('DOMContentLoaded', () => {
       modalLegenda.textContent = img.dataset.legenda;
     });
   });
-
   fecharModal.addEventListener('click', () => {
     modal.style.display = 'none';
   });
-
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
   });
 });
-
-// Trocar mensagem ao clicar
 document.getElementById('mudar-mensagem').addEventListener('click', function () {
   const mensagemAtual = document.getElementById('mensagem-texto').textContent;
   let novaMensagem = mensagemAtual;
@@ -358,12 +327,9 @@ document.getElementById('mudar-mensagem').addEventListener('click', function () 
   }
   document.getElementById('mensagem-texto').textContent = novaMensagem;
 });
-
-// Música nos cartões
 const player = document.getElementById('player');
 const cards = document.querySelectorAll('.card');
 let currentCard = null;
-
 cards.forEach(card => {
   card.addEventListener('click', () => {
     if (currentCard === card && !player.paused) {
@@ -381,13 +347,9 @@ cards.forEach(card => {
     }
   });
 });
-
-// Relógio do namoro
 function atualizarRelogio() {
-  const inicioNamoro = new Date('2023-09-15T00:00:00'); // Início do namoro
-  const agora = new Date(); // Data e hora atual
-
-  // Verificar se os elementos HTML existem
+  const inicioNamoro = new Date('2023-09-15T00:00:00');
+  const agora = new Date(); 
   const elementos = ['anos', 'meses', 'dias', 'horas', 'minutos', 'segundos'];
   for (let id of elementos) {
     if (!document.getElementById(id)) {
@@ -395,11 +357,7 @@ function atualizarRelogio() {
       return;
     }
   }
-
-  // Calcular diferença em milissegundos
   const diferenca = agora.getTime() - inicioNamoro.getTime();
-
-  // Convertendo a diferença de tempo para segundos
   const segundosTotais = Math.floor(diferenca / 1000);
   const anos = Math.floor(segundosTotais / (365.25 * 24 * 60 * 60)); // Aproximando ano com 365.25 dias para anos bissextos
   const restoAnos = segundosTotais - anos * (365.25 * 24 * 60 * 60);
@@ -411,8 +369,6 @@ function atualizarRelogio() {
   const restoHoras = restoDias - horas * (60 * 60);
   const minutos = Math.floor(restoHoras / 60);
   const segundos = restoHoras - minutos * 60;
-
-  // Atualizar elementos HTML
   document.getElementById('anos').textContent = anos;
   document.getElementById('meses').textContent = meses;
   document.getElementById('dias').textContent = dias;
