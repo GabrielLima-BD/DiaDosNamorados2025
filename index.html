@@ -1,108 +1,306 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eu Te Amo</title>
-  <link rel="stylesheet" href="./css/styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
-</head>
-<body>
-  <div id="canvas-container"></div>
-  <audio id="player"></audio>
-  <header>
-    <h1>Eu Te Amo</h1>
-    <p>E aqui está uma forma para relembrarmos os nossos momentos sempre que tivermos saudades</p>
-  </header>
-
-  <section class="momentos">
-    <h2>Momentos Inesquecíveis</h2>
-    <div class="cards">
-      <div class="card" data-music="./Musica/Musica1Vemca.mp3">
-        <img src="./imagens/PrimeiroEncontro.jpg" alt="Primeiro Encontro/Beijo">
-        <h3>Primeiro Encontro/Beijo</h3>
-        <p>Nosso "primeiro" encontro, a foto não é basicamente dela, mas eu considero os 2 como primeiros. Mas eu quero falar é daquele do nosso
-          primeiro beijo, simplesmente mágico e engraçado, pois foi algo na emoção da hora, e ainda por cima após de um jogo de bilhar, sim, eu a levei
-          para um "bar" no nosso primeiro encontro, tudo improvisado, mas foi algo que eu nunca vou esquecer. Queria reviver como espectador esse momento,
-          olhar de longe e ver a gente se olhando, e eu com aquele sorriso bobo no rosto e vc me olhando de uma forma que me dava arrepios, foi aonde eu
-          descobri o que era amor. E sim, foi vc que me puxou.
-        </p>
-      </div>
-
-      <div class="card" data-music="./Musica/Musica2YoungGirl.mp3">
-        <img src="./imagens/Cachoeira.jpg" alt="1 Viagem a sós">
-        <h3>1 Viagem a sós</h3>
-        <p>Um passeio lindo, mas tbm traumatizante. Primeira vez saindo sozinhos, um passeio apenas nosso e de mais ninguém, e parece que
-          Deus estava com nós, pq pegarmos aquela cachoeira com somente a gente foi algo mágico, um passeio que não foi de última hora,
-          mas foi algo de repente, não organizamos muita coisa pra levar, mas levamos o essencial, água, lanche, cadeiras, protetores e toalhas,
-          mas o que mais levamos foi o amor, e isso foi o que mais importou. Mas uma coisa é certa, NUNCA mais podemos confiar 100% no Waze.
-        </p>
-      </div>
-
-      <div class="card" data-music="./Musica/Musica3Tatto.mp3">
-        <img src="./imagens/Linaguada.jpg" alt="Nosso Jeitinho">
-        <h3>Fotos e mais Fotos</h3>
-        <p>Olhares, caretas e sorrisos, tudo guardado em fotos e vídeos. É engraçado, pois nunca fui uma pessoa ligada a tirar foto,
-          é uma coisa que eu odiava, minha galeria era algo vazio e de repente ficou lotada de coisas,
-          fotos nossas, do Drako e da Lili, e eu te agradeço muito por ter me mostrado isso, eu amo viver o momento,
-          mas tbm amo o fato de poder relembrar ele com as fotos, tudo isso graças a vc, que depois que te conheci,
-          é a forma que eu mais gosto de lembrar da gente.</p>
-      </div>
-
-      <div class="card" data-music="./Musica/Musica4Amor.mp3">
-        <img src="./imagens/BetoCarreiro.jpg" alt="Mais Risos">
-        <h3>"Amor, confesso tu tira minha dor"</h3>
-        <p>Essa aqui é história, essa foto, esse momento, essas lembranças,
-          essa viagem, pra mim foi bizarro. Aquela noite na praia, fiz um dos pedidos mais fortes para o universo,
-          que foi me deixar ao seu lado pro resto da vida. Que nem diz a música -
-          "Quero conhecer todos os lugares desse mundo, mas sem você eu não vou"
-        </p>
-      </div>
-
-      <div class="card" data-music="./Musica/Musica5EuGostoDeVoce.mp3">
-        <img src="./imagens/RIdiculos.jpg" alt="Sempre Juntos">
-        <h3>Eu Te Amo</h3>
-        <p>Não importa o ano, o mês, o dia, a hora, o segundo, o lugar, com quem, fazendo sla o que, sempre vou acabar pensando em vc e na gente.
-          Sou completamente apaixonado por vc, e não tem como eu não pensar em vc, e em tudo que vivemos juntos e o que ainda vamos viver. Eu te amo,
-          e espero que vc nunca duvide disso, pois é algo que eu sinto com todas as minhas forças, e que eu quero viver com vc por toda a minha vida.
-        </p>
-      </div>
-    </div>
-  </section>
-  
-  <section class="mensagens">
-    <h2>Mensagens do Coração</h2>
-    <p id="mensagem-texto">Você é a minha estrela mais brilhante. Feliz Dia dos Namorados!</p>
-    <button id="mudar-mensagem">Nova Mensagem</button>
-    <div id="relogio-namoro">
-      <h3>Tempo Juntos</h3>
-      <p id="tempo">
-        <span id="anos">0</span> anos, 
-        <span id="meses">0</span> meses, 
-        <span id="dias">0</span> dias, 
-        <span id="horas">0</span> horas, 
-        <span id="minutos">0</span> minutos, 
-        <span id="segundos">0</span> segundos
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eu Te Amo</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+    <audio id="player"></audio>
+    <header>
+      <h1>Eu Te Amo</h1>
+      <p>
+        E aqui está uma forma para relembrarmos os nossos momentos sempre que
+        tivermos saudades
       </p>
-    </div>
-  </section>
+    </header>
 
-  <section class="galeria">
-    <h2>Nosso Álbum</h2>
-    <div class="album-container">
-      <img src="./imagens/PrimeiroEncontro.jpg" alt="Primeiro Encontro" class="galeria-img" data-legenda="Nosso primeiro beijo, mágico e inesquecível!">
-      <img src="./imagens/Cachoeira.jpg" alt="Cachoeira" class="galeria-img" data-legenda="Viagem a sós na cachoeira, só nosso amor e a natureza.">
-      <img src="./imagens/Linaguada.jpg" alt="Fotos e mais Fotos" class="galeria-img" data-legenda="Caretas e sorrisos que guardo no coração.">
-      <img src="./imagens/BetoCarreiro.jpg" alt="Beto Carreiro" class="galeria-img" data-legenda="Uma aventura cheia de risos e amor.">
-      <img src="./imagens/RIdiculos.jpg" alt="Ridículos" class="galeria-img" data-legenda="Sempre juntos, sendo nós mesmos!">
-    </div>
-    <div id="modal-galeria" class="modal">
-      <span class="fechar-modal">×</span>
-      <img id="modal-imagem" src="">
-      <p id="modal-legenda"></p>
-    </div>
-  </section>
+    <section class="momentos">
+      <h2>Momentos Inesquecíveis</h2>
+      <div class="cards">
+        <div class="card" data-music="./Musica/Musica1Vemca.mp3">
+          <img
+            src="./imagens/PrimeiroEncontro.jpg"
+            alt="Primeiro Encontro/Beijo"
+          />
+          <h3>Primeiro Encontro/Beijo</h3>
+          <p>
+            Nosso "primeiro" encontro, a foto não é basicamente dela, mas eu
+            considero os 2 como primeiros. Mas eu quero falar é daquele do nosso
+            primeiro beijo, simplesmente mágico e engraçado, pois foi algo na
+            emoção da hora, e ainda por cima após de um jogo de bilhar, sim, eu
+            a levei para um "bar" no nosso primeiro encontro, tudo improvisado,
+            mas foi algo que eu nunca vou esquecer. Queria reviver como
+            espectador esse momento, olhar de longe e ver a gente se olhando, e
+            eu com aquele sorriso bobo no rosto e vc me olhando de uma forma que
+            me dava arrepios, foi aonde eu descobri o que era amor. E sim, foi
+            vc que me puxou.
+          </p>
+        </div>
 
-  <script src="./javascript/script.js"></script>
-</body>
+        <div class="card" data-music="./Musica/Musica2YoungGirl.mp3">
+          <img src="./imagens/Cachoeira.jpg" alt="1 Viagem a sós" />
+          <h3>1 Viagem a sós</h3>
+          <p>
+            Um passeio lindo, mas tbm traumatizante. Primeira vez saindo
+            sozinhos, um passeio apenas nosso e de mais ninguém, e parece que
+            Deus estava com nós, pq pegarmos aquela cachoeira com somente a
+            gente foi algo mágico, um passeio que não foi de última hora, mas
+            foi algo de repente, não organizamos muita coisa pra levar, mas
+            levamos o essencial, água, lanche, cadeiras, protetores e toalhas,
+            mas o que mais levamos foi o amor, e isso foi o que mais importou.
+            Mas uma coisa é certa, NUNCA mais podemos confiar 100% no Waze.
+          </p>
+        </div>
+
+        <div class="card" data-music="./Musica/Musica3Tatto.mp3">
+          <img src="./imagens/Linaguada.jpg" alt="Nosso Jeitinho" />
+          <h3>Fotos e mais Fotos</h3>
+          <p>
+            Olhares, caretas e sorrisos, tudo guardado em fotos e vídeos. É
+            engraçado, pois nunca fui uma pessoa ligada a tirar foto, é uma
+            coisa que eu odiava, minha galeria era algo vazio e de repente ficou
+            lotada de coisas, fotos nossas, do Drako e da Lili, e eu te agradeço
+            muito por ter me mostrado isso, eu amo viver o momento, mas tbm amo
+            o fato de poder relembrar ele com as fotos, tudo isso graças a vc,
+            que depois que te conheci, é a forma que eu mais gosto de lembrar da
+            gente.
+          </p>
+        </div>
+
+        <div class="card" data-music="./Musica/Musica4Amor.mp3">
+          <img src="./imagens/BetoCarreiro.jpg" alt="Mais Risos" />
+          <h3>"Amor, confesso tu tira minha dor"</h3>
+          <p>
+            Essa aqui é história, essa foto, esse momento, essas lembranças,
+            essa viagem, pra mim foi bizarro. Aquela noite na praia, fiz um dos
+            pedidos mais fortes para o universo, que foi me deixar ao seu lado
+            pro resto da vida. Que nem diz a música - "Quero conhecer todos os
+            lugares desse mundo, mas sem você eu não vou"
+          </p>
+        </div>
+
+        <div class="card" data-music="./Musica/Musica5EuGostoDeVoce.mp3">
+          <img src="./imagens/RIdiculos.jpg" alt="Sempre Juntos" />
+          <h3>Eu Te Amo</h3>
+          <p>
+            Não importa o ano, o mês, o dia, a hora, o segundo, o lugar, com
+            quem, fazendo sla o que, sempre vou acabar pensando em vc e na
+            gente. Sou completamente apaixonado por vc, e não tem como eu não
+            pensar em vc, e em tudo que vivemos juntos e o que ainda vamos
+            viver. Eu te amo, e espero que vc nunca duvide disso, pois é algo
+            que eu sinto com todas as minhas forças, e que eu quero viver com vc
+            por toda a minha vida.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mensagens">
+      <h2>Mensagens do Coração</h2>
+      <p id="mensagem-texto">
+        Você é a minha estrela mais brilhante. Feliz Dia dos Namorados!
+      </p>
+      <button id="mudar-mensagem">Nova Mensagem</button>
+      <div id="relogio-namoro">
+        <h3>Tempo Juntos</h3>
+        <p id="tempo">
+          <span id="anos">0</span> anos, <span id="meses">0</span> meses,
+          <span id="dias">0</span> dias, <span id="horas">0</span> horas,
+          <span id="minutos">0</span> minutos,
+          <span id="segundos">0</span> segundos
+        </p>
+      </div>
+    </section>
+
+    <section class="galeria">
+      <h2>Nosso Álbum</h2>
+      <div class="album-container">
+        <img
+          src="./imagens/album/Batatao.jpg"
+          alt="Batatao"
+          class="galeria-img"
+          data-legenda="Uma das primeiras saidas que nois teve."
+        />
+        <img
+          src="./imagens/album/BcMaldade.jpg"
+          alt="Balneario Camboriu"
+          class="galeria-img"
+          data-legenda="Nossa vijem a BC, sdds desses dias, queria ter aproveitados mais ctg."
+        />
+        <img
+          src="./imagens/album/BcPraia.jpg"
+          alt="Balneario na Praia"
+          class="galeria-img"
+          data-legenda="Melhor noite na pria em BC, clima bizarro de bom"
+        />
+        <img
+          src="./imagens/album/Beiço.jpg"
+          alt="Beiçola"
+          class="galeria-img"
+          data-legenda="Quer carinha linda meu amor kk."
+        />
+        <img
+          src="./imagens/album/BetoCarreiro.jpg"
+          alt="Viajem Beto Carreiro"
+          class="galeria-img"
+          data-legenda="Viajem foda, precisamos voltar novamente."
+        />
+        <img
+          src="./imagens/album/BuqueVam.jpg"
+          alt="Buque Van Gogh"
+          class="galeria-img"
+          data-legenda="Dia que mais tremi na vida, estava nervoso demaissss."
+        />
+        <img
+          src="./imagens/album/CaraComFiltro.jpg"
+          alt="Fotinha com Filtro"
+          class="galeria-img"
+          data-legenda="Fitrinho basico"
+        />
+        <img
+          src="./imagens/album/CharlieChaplin.jpg"
+          alt="Cosplay de Charlie Chaplin"
+          class="galeria-img"
+          data-legenda="Cosplay de Charlie Chaplin."
+        />
+        <img
+          src="./imagens/album/CircoFora.jpg"
+          alt="Dia que nois fomos no Circo"
+          class="galeria-img"
+          data-legenda="Foto linda do caralho."
+        />
+        <img
+          src="./imagens/album/Compras.jpg"
+          alt="Comprinhas"
+          class="galeria-img"
+          data-legenda="Saidinha basica nem lembro nem pq"
+        />
+        <img
+          src="./imagens/album/Cozinhando.jpg"
+          alt="Cozinhando"
+          class="galeria-img"
+          data-legenda="Cozinhando meu queridisso Strogonoff (deu errado)"
+        />
+        <img
+          src="./imagens/album/Deitados.jpg"
+          alt="Deitadinhos dormindo"
+          class="galeria-img"
+          data-legenda="Aquela dormidinha basica."
+        />
+        <img
+          src="./imagens/album/DeitadosRede.jpg"
+          alt="Deitados na rede"
+          class="galeria-img"
+          data-legenda="Deitadinho na rede."
+        />
+        <img
+          src="./imagens/album/FamiliaLinda.jpg"
+          alt="Familia Linda"
+          class="galeria-img"
+          data-legenda="Que falima linda, amo vcs."
+        />
+        <img
+          src="./imagens/album/FelizControle.jpg"
+          alt="Presente Controle"
+          class="galeria-img"
+          data-legenda="Feliz da vida qnd ganhei meu controle."
+        />
+        <img
+          src="./imagens/album/FormaturaGabe.jpg"
+          alt="Minha Formatura"
+          class="galeria-img"
+          data-legenda="Minha formatura, estava nervoso pra caralho, mas foi um dia lindo e vc estava deslumbrante."
+        />
+        <img
+          src="./imagens/album/Sentado.jpg"
+          alt="Sentadinhos"
+          class="galeria-img"
+          data-legenda="Sentados na praça, nem parece qq estavamos brigando n sei pq"
+        />
+        <img
+          src="./imagens/album/VerdeCombinando.jpg"
+          alt="Verdihos"
+          class="galeria-img"
+          data-legenda="Combinandinhos"
+        />
+        <img
+          src="./imagens/album/FormaturaAndri1.jpeg"
+          alt="Formatura Andri"
+          class="galeria-img"
+          data-legenda="Sua formatura, estava lindissima, e eu estava muito orgulhoso de vc."
+        />
+        <img
+          src="./imagens/album/FormaturaAndri2.jpeg"
+          alt="Formatura Andri 2"
+          class="galeria-img"
+          data-legenda="Sua formatura part 2"
+        />
+        <img
+          src="./imagens/album/Chacara.jpg"
+          alt="Chacara"
+          class="galeria-img"
+          data-legenda="Jantinha na chacara."
+        />
+        <img
+          src="./imagens/album/VidroOnibus.jpg"
+          alt="Veios"
+          class="galeria-img"
+          data-legenda="Parecendo dois veios viajando."
+        />
+        <img
+          src="./imagens/album/Morta.jpg"
+          alt="Difunto"
+          class="galeria-img"
+          data-legenda="Parecendo um defunto"
+        />
+        <img
+          src="./imagens/album/MaiorSusto.jpg"
+          alt="Presente"
+          class="galeria-img"
+          data-legenda="Dia que vc me surpreendeu com o presente, saudades demaisss"
+        />
+        <img
+          src="./imagens/album/Beijinhos.jpg"
+          alt="Beijinhos"
+          class="galeria-img"
+          data-legenda="Beijinhos que valem mais que mil palavras."
+        />
+        <img
+          src="./imagens/album/CasalBunito.jpg"
+          alt="Bonitos"
+          class="galeria-img"
+          data-legenda="Bem casalzao mesmo"
+        />
+        <img
+          src="./imagens/album/Reliquiaa.jpg"
+          alt="Verdihos"
+          class="galeria-img"
+          data-legenda="Uma das reliqquias das fotos"
+        />
+        <img
+          src="./imagens/album/Fotao.jpg"
+          alt="Loucura"
+          class="galeria-img"
+          data-legenda="Essa daqui é fotão"
+        />
+        <img
+          src="./imagens/album/Dichavaa.jpg"
+          alt="Reliquia do mano"
+          class="galeria-img"
+          data-legenda="Prontos para meter o louco"
+        />
+      </div>
+      <div id="modal-galeria" class="modal">
+        <span class="fechar-modal">×</span>
+        <img id="modal-imagem" src="" />
+        <p id="modal-legenda"></p>
+      </div>
+    </section>
+
+    <script src="./javascript/script.js"></script>
+  </body>
 </html>
